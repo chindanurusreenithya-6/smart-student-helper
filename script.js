@@ -1,22 +1,22 @@
-document.getElementById("signupForm").addEventListener("submit", function(event) {
+// Login functionality
+const loginForm = document.getElementById("loginForm");
 
-    event.preventDefault();
+if (loginForm) {
+    loginForm.addEventListener("submit", function(event) {
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
+        event.preventDefault();
 
-    if (password !== confirmPassword) {
-        alert("Passwords do not match!");
-        return;
-    }
+        let email = document.getElementById("loginEmail").value;
+        let password = document.getElementById("loginPassword").value;
 
-    localStorage.setItem("studentName", name);
-    localStorage.setItem("studentEmail", email);
-    localStorage.setItem("studentPassword", password);
+        let savedEmail = localStorage.getItem("studentEmail");
+        let savedPassword = localStorage.getItem("studentPassword");
 
-    alert("Account created successfully!");
-
-    window.location.href = "login.html";
-});
+        if (email === savedEmail && password === savedPassword) {
+            alert("Login successful!");
+            window.location.href = "dashboard.html";
+        } else {
+            alert("Invalid email or password!");
+        }
+    });
+}
