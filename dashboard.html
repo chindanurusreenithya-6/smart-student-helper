@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Smart Student Dashboard</h1>
+
+    <h2 id="welcomeMessage"></h2>
+
+    <p>Manage your studies easily in one place.</p>
+
+    <hr>
+
+    <h2>📅 Timetable</h2>
+    <p>View and manage your daily class schedule.</p>
+    <button>View Timetable</button>
+
+    <h2>📝 Assignments</h2>
+    <p>Track your pending and completed assignments.</p>
+    <button>View Assignments</button>
+
+    <h2>📚 Study Tasks</h2>
+    <p>Manage your study tasks and goals.</p>
+    <button>View Study Tasks</button>
+
+    <h2>🧪 Exams</h2>
+    <p>Keep track of upcoming examinations.</p>
+    <button>View Exams</button>
+
+    <h2>📊 Progress</h2>
+    <p>Check your study progress.</p>
+    <button>View Progress</button>
+
+    <br><br>
+
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        let name = localStorage.getItem("studentName");
+
+        if (name) {
+            document.getElementById("welcomeMessage").innerText =
+                "Welcome, " + name + "! 👋";
+        }
+
+        function logout() {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
